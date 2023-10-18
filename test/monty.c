@@ -1,5 +1,3 @@
-#define _POSIX_C_SOURCE 200809L  /* Define this macro for getline*/
-
 #include "monty.h"
 
 char **all_op_tokens = NULL;
@@ -56,20 +54,6 @@ void (*get_op_function(char *opcode))(stack_t **, unsigned int)
 	}
 
 	return (NULL);
-}
-
-/**
- * token_arr_len - gets the length of all_op_tokens.
- *
- * Return: Length of current all_op_tokens.
- */
-unsigned int token_arr_len(void)
-{
-	unsigned int toks_len = 0;
-
-	while (all_op_tokens[toks_len])
-		toks_len++;
-	return (toks_len);
 }
 
 /**

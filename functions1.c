@@ -40,7 +40,7 @@ int init_stack(stack_t **stack)
 
 	s = malloc(sizeof(stack_t));
 	if (s == NULL)
-		return (malloc_error());
+		return (malloc_free_error());
 
 	s->n = 0;
 	s->prev = NULL;

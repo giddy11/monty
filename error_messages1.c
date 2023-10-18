@@ -39,3 +39,4 @@ int unknown_op_func_error(char *opcode, unsigned int line_number)
 			line_number, opcode);
 	return (EXIT_FAILURE);
 }
+

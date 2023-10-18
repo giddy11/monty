@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-char **all_op_tokens = NULL;
+extern char **all_op_tokens;
 
 #define DELIMS " \n\t"
 
@@ -51,7 +51,7 @@ int unknown_op_func_error(char *opcode, unsigned int line_number);
 
 /*Error messages found in file error_messages2.c*/
 void set_op_tok_error(int exit_status);
-
+int no_int_error(unsigned int line_number);
 
 int execute_monty(FILE *file);
 
@@ -62,8 +62,11 @@ void free_stack(stack_t **stack);
 void free_op_tokens(void);
 int check_mode(stack_t *stack);
 
+unsigned int token_arr_len(void);
+
 /*functions that are part of monty operation is found in functions2.c*/
 int is_valid_int(void);
+
 
 
 char **strtow(char *str, char *delims);
