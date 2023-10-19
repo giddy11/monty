@@ -46,11 +46,15 @@ typedef struct instruction_s
 int arg_not_2_error(void);
 int file_error(char *filename);
 int malloc_free_error(void);
-int unknown_op_func_error(char *opcode, unsigned int line_number);
-int no_int_error(unsigned int line_number);
+int unknown_op_func_error(char *opcode, unsigned int line_n);
+int no_int_error(unsigned int line_n);
 
 /*Error messages found in file error_messages2.c*/
-void set_op_tok_error(int exit_status);
+void set_op_tok_error(int exit_s);
+int pint_error(unsigned int line_n);
+int pint_error(unsigned int line_n);
+int pop_error(unsigned int line_n);
+
 
 /*Change interger to string functions in function3.c*/
 char *change_int_str(int num);
@@ -76,6 +80,7 @@ char **strtow(char *str, char *delims);
 /*Opcodes*/
 void push_to_stack(stack_t **stack, unsigned int line_number);
 void print_all_stack(stack_t **stack, unsigned int line_number);
-
+void print_top_stack_pint(stack_t **stack, unsigned int line_n);
+void pop_from_stack(stack_t **stack, unsigned int line_number);
 
 #endif

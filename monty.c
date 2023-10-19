@@ -41,6 +41,8 @@ void (*get_op_function(char *opcode))(stack_t **, unsigned int)
 	instruction_t op_and_funcs[] = {
 		{"push", push_to_stack},
 		{"pall", print_all_stack},
+		{"pint", print_top_stack_pint},
+		{"pop", pop_from_stack},
 		{NULL, NULL}};
 
 	int i;

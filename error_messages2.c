@@ -36,3 +36,27 @@ void set_op_tok_error(int exit_status)
 	free(all_op_tokens);
 	all_op_tokens = new_tokens;
 }
+
+/**
+ * pint_error - prints the error message for can't pint, stack empty.
+ * @line_n: Line number in Monty bytecode file where error occurred.
+ *
+ * Return: (EXIT_FAILURE) always.
+ */
+int pint_error(unsigned int line_n)
+{
+	fprintf(stderr, "L%d: can't pint, stack empty\n", line_n);
+	return (EXIT_FAILURE);
+}
+
+/**
+ * pop_error - prints the error message for can't pop an empty stack.
+ * @line_n: Line number in Monty bytecode file where error occurred.
+ *
+ * Return: (EXIT_FAILURE) always.
+ */
+int pop_error(unsigned int line_n)
+{
+	fprintf(stderr, "L%d: can't pop an empty stack\n", line_n);
+	return (EXIT_FAILURE);
+}
