@@ -43,15 +43,17 @@ typedef struct instruction_s
 } instruction_t;
 
 /*Error messages found in file error_messages1.c*/
-int print_error_message(const char *message, ...);
 int arg_not_2_error(void);
 int file_error(char *filename);
 int malloc_free_error(void);
 int unknown_op_func_error(char *opcode, unsigned int line_number);
+int no_int_error(unsigned int line_number);
 
 /*Error messages found in file error_messages2.c*/
 void set_op_tok_error(int exit_status);
-int no_int_error(unsigned int line_number);
+
+/*Change interger to string functions in function3.c*/
+char *change_int_str(int num);
 
 int execute_monty(FILE *file);
 

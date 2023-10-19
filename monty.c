@@ -14,24 +14,20 @@ char **all_op_tokens = NULL;
 int main(int argc, char **argv)
 {
 	FILE *file = NULL;
-	int exit_status = EXIT_SUCCESS;
+	int exit_s = EXIT_SUCCESS;
 
 	if (argc != 2)
-	{
-		return arg_not_2_error();
-	}
+		return (arg_not_2_error());
 
 	file = fopen(argv[1], "r");
 	if (file == NULL)
-	{
-		return file_error(argv[1]);
-	}
+		return (file_error(argv[1]));
 
-	exit_status = execute_monty(file);
+	exit_s = execute_monty(file);
 
 	fclose(file);
 
-	return (exit_status);
+	return (exit_s);
 }
 
 /**
@@ -83,8 +79,8 @@ int execute_monty(FILE *file)
 {
 	stack_t *stack = NULL;
 	char *line = NULL;
-	size_t len = 0, exit_status = EXIT_SUCCESS;
-	unsigned int line_number = 0, prev_tok_len = 0;
+	size_t len = 0, exit_s = EXIT_SUCCESS;
+	unsigned int line_n = 0, prev_tok_len = 0;
 	void (*op_function)(stack_t **, unsigned int);
 
 	if (init_stack(&stack) == EXIT_FAILURE)
@@ -92,7 +88,7 @@ int execute_monty(FILE *file)
 
 	while (getline(&line, &len, file) != -1)
 	{
-		line_number++;
+		line_n++;
 		all_op_tokens = strtow(line, DELIMS);
 		if (all_op_tokens == NULL)
 		{
@@ -110,18 +106,18 @@ int execute_monty(FILE *file)
 		if (op_function == NULL)
 		{
 			free_stack(&stack);
-			exit_status = unknown_op_func_error(all_op_tokens[0], line_number);
+			exit_s = unknown_op_func_error(all_op_tokens[0], line_n);
 			free_op_tokens();
 			break;
 		}
 		prev_tok_len = token_arr_len();
-		op_function(&stack, line_number);
+		op_function(&stack, line_n);
 		if (token_arr_len() != prev_tok_len)
 		{
 			if (all_op_tokens && all_op_tokens[prev_tok_len])
-				exit_status = atoi(all_op_tokens[prev_tok_len]);
+				exit_s = atoi(all_op_tokens[prev_tok_len]);
 			else
-				exit_status = EXIT_FAILURE;
+				exit_s = EXIT_FAILURE;
 			free_op_tokens();
 			break;
 		}
@@ -135,5 +131,5 @@ int execute_monty(FILE *file)
 		return (malloc_free_error());
 	}
 	free(line);
-	return (exit_status);
+	return (exit_s);
 }
