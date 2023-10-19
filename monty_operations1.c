@@ -115,23 +115,18 @@ void pop_from_stack(stack_t **stack, unsigned int line_n)
  */
 void swap_top_2(stack_t **stack, unsigned int line_n)
 {
-	stack_t *tmp = NULL, *tmp2 = NULL;
+	stack_t *tmp;
+	int tmp2;
 
-	tmp = (*stack)->next;
-	tmp2 = (*stack)->next->next;
+	tmp = *stack;
 
-	if (tmp == NULL || tmp2 == NULL)
+	if (tmp == NULL || tmp->next == NULL)
 	{
 		set_op_tok_error(swapError(line_n));
 		return;
 	}
 
-	tmp->next = tmp2->next;
-	tmp->prev = tmp2;
-	tmp2->next = tmp;
-	tmp2->prev = (*stack);
-	(*stack)->next = tmp2;
-
-	if (tmp->next != NULL)
-		tmp->next->prev = tmp;
+	tmp2 = tmp->n;
+	tmp->n = tmp->next->n;
+	tmp->next->n = tmp2;
 }
