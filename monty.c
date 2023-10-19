@@ -44,6 +44,8 @@ void (*get_op_function(char *opcode))(stack_t **, unsigned int)
 		{"pint", print_top_stack_pint},
 		{"pop", pop_from_stack},
 		{"swap", swap_top_2},
+		{"add", add_top_2},
+		{"nop", does_nothing},
 		{NULL, NULL}};
 
 	int i;
