@@ -54,7 +54,7 @@ void set_op_tok_error(int exit_s);
 int pint_error(unsigned int line_n);
 int pint_error(unsigned int line_n);
 int pop_error(unsigned int line_n);
-
+int swapError(unsigned int line_n);
 
 /*Change interger to string functions in function3.c*/
 char *change_int_str(int num);
@@ -77,10 +77,12 @@ int is_valid_int(void);
 
 char **strtow(char *str, char *delims);
 
-/*Opcodes*/
-void push_to_stack(stack_t **stack, unsigned int line_number);
-void print_all_stack(stack_t **stack, unsigned int line_number);
+/*First Opcodes found in monty_operations1.c*/
+void push_to_stack(stack_t **stack, unsigned int line_n);
+void print_all_stack(stack_t **stack, unsigned int line_n);
 void print_top_stack_pint(stack_t **stack, unsigned int line_n);
-void pop_from_stack(stack_t **stack, unsigned int line_number);
+void pop_from_stack(stack_t **stack, unsigned int line_n);
+void swap_top_2(stack_t **stack, unsigned int line_n);
+
 
 #endif

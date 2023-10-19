@@ -60,3 +60,15 @@ int pop_error(unsigned int line_n)
 	fprintf(stderr, "L%d: can't pop an empty stack\n", line_n);
 	return (EXIT_FAILURE);
 }
+
+/**
+ * swapError - prints the error message for stack too short to swap.
+ * @line_n: Line number in Monty bytecode file where error occurred.
+ *
+ * Return: (EXIT_FAILURE) always.
+ */
+int swapError(unsigned int line_n)
+{
+	fprintf(stderr, "L%d: can't swap, stack too short\n", line_n);
+	return (EXIT_FAILURE);
+}

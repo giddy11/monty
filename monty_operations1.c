@@ -106,3 +106,32 @@ void pop_from_stack(stack_t **stack, unsigned int line_n)
 	if (tmp2)
 		tmp2->prev = (*stack);
 }
+
+/**
+ * swap_top_2 - swaps the top two elements of a stack.
+ * @stack: Double pointer to the head of the list.
+ * @line_n: The line the swap opcode was called from.
+ *
+ */
+void swap_top_2(stack_t **stack, unsigned int line_n)
+{
+	stack_t *tmp = NULL, *tmp2 = NULL;
+
+	tmp = (*stack)->next;
+	tmp2 = (*stack)->next->next;
+
+	if (tmp == NULL || tmp2 == NULL)
+	{
+		set_op_tok_error(swapError(line_n));
+		return;
+	}
+
+	tmp->next = tmp2->next;
+	tmp->prev = tmp2;
+	tmp2->next = tmp;
+	tmp2->prev = (*stack);
+	(*stack)->next = tmp2;
+
+	if (tmp->next != NULL)
+		tmp->next->prev = tmp;
+}
