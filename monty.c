@@ -46,6 +46,10 @@ void (*get_op_function(char *opcode))(stack_t **, unsigned int)
 		{"swap", swap_top_2},
 		{"add", add_top_2},
 		{"nop", does_nothing},
+		{"sub", sub_top_2},
+		{"div", div_top_2},
+		{"mul", mul_top_2},
+		{"mod", mod_top_2},
 		{NULL, NULL}};
 
 	int i;

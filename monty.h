@@ -58,6 +58,9 @@ int swapError(unsigned int line_n);
 
 /*Error messages found in file error_messages3.c*/
 int addError(unsigned int line_n);
+int short_stackErrors(unsigned int line_n, char *error);
+int divError(unsigned int line_n);
+
 
 /*Change interger to string functions in function3.c*/
 char *change_int_str(int num);
@@ -87,11 +90,14 @@ void print_top_stack_pint(stack_t **stack, unsigned int line_n);
 void pop_from_stack(stack_t **stack, unsigned int line_n);
 void swap_top_2(stack_t **stack, unsigned int line_n);
 
-/*First Opcodes found in monty_operations2.c*/
+/*Third Opcodes found in monty_operations3.c*/
+void mod_top_2(stack_t **stack, unsigned int line_n);
+
+/*Second Opcodes found in monty_operations2.c*/
 void add_top_2(stack_t **stack, unsigned int line_n);
 void does_nothing(stack_t **stack, unsigned int line_n);
-
-
-
+void sub_top_2(stack_t **stack, unsigned int line_n);
+void div_top_2(stack_t **stack, unsigned int line_n);
+void mul_top_2(stack_t **stack, unsigned int line_n);
 
 #endif
